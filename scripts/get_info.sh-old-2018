@@ -1,24 +1,21 @@
 #!/bin/bash
 
-estado_de_cuentas2019="1F137shEVgEoafgVPwpM_mtW5wo36ecPtW3pdchQWou4"
-hoja_principal="-beta-CONCAT-"
-
 function welcome()
 {
 
-  echo "TAG GENERATOR v0.1"
-  echo " ____|    \ "
-  echo "(____|     \`._____ "
-  echo " ____|       _|___ "
-  echo "(____|     .\' "
-  echo "     |____/ "
+echo "TAG GENERATOR v0.1"
+echo " ____|    \ "
+echo "(____|     \`._____ "
+echo " ____|       _|___ "
+echo "(____|     .\' "
+echo "     |____/ "
 
-  #Borra primero
-  rm /home/canros/Andara/zkeco/activar/activar.txt
-  rm /home/canros/Andara/zkeco/activar/activar2.txt
+#Borra primero
+rm /home/canros/Andara/zkeco/activar/activar.txt
+rm /home/canros/Andara/zkeco/activar/activar2.txt
 
-  touch /home/canros/Andara/zkeco/activar/activar.txt
-  touch /home/canros/Andara/zkeco/activar/activar2.txt
+touch /home/canros/Andara/zkeco/activar/activar.txt
+touch /home/canros/Andara/zkeco/activar/activar2.txt
 }
 
 workdir="/home/canros/Andara/zkeco/scripts"
@@ -58,10 +55,9 @@ function get_csv_2()
   if [ -f $file ]; then
     echo "Ya he descargado una lista antes.."
     rm $file
-    wget https://docs.google.com/spreadsheets/d/$estado_de_cuentas2019/export?format=csv
-
+    wget https://docs.google.com/spreadsheets/d/1F137shEVgEoafgVPwpM_mtW5wo36ecPtW3pdchQWou4/export?format=csv
   else
-    wget https://docs.google.com/spreadsheets/d/$estado_de_cuentas2019/export?format=csv
+    wget https://docs.google.com/spreadsheets/d/1F137shEVgEoafgVPwpM_mtW5wo36ecPtW3pdchQWou4/export?format=csv
     echo "Hemos descargado... ¡Renombrando!"
     mv $file lista2.txt
     sleep 2
@@ -89,8 +85,8 @@ function tag()
       break
     fi
     echo $tag
-    #    cat $db | grep "$tag" >> activar.txt
-    cat $db | grep "$tag" >> /home/canros/Andara/zkeco/activar/activar.txt
+#    cat $db | grep "$tag" >> activar.txt
+     cat $db | grep "$tag" >> /home/canros/Andara/zkeco/activar/activar.txt
   done < lista.txt
   pwd
   sleep 2
@@ -109,8 +105,8 @@ function tag()
       break
     fi
     echo $tag
-    #    cat $db | grep "$tag" >> activar2.txt
-    cat $db | grep "$tag" >> /home/canros/Andara/zkeco/activar/activar2.txt
+#    cat $db | grep "$tag" >> activar2.txt
+     cat $db | grep "$tag" >> /home/canros/Andara/zkeco/activar/activar2.txt
   done < lista2.txt
   pwd
   sleep 2
